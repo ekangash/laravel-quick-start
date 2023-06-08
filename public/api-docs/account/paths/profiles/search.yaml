@@ -1,0 +1,24 @@
+post:
+  summary: 'Поиск пользователей, удовлетворяющих фильтру'
+  operationId: usersSearch
+  tags:
+    - profiles
+  responses:
+    '200':
+      description: OK
+      content:
+        mult:
+          schema:
+            type: object
+            properties:
+              avatar:
+                type: string
+                description: Аватарка
+                format: binary
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '/api-docs/shared/schemas/search-request.yaml'
+  description: 'Поиск пользователей, удовлетворяющих фильтру'
+  parameters: []

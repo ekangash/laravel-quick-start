@@ -1,0 +1,38 @@
+title: SearchRequest
+type: object
+properties:
+  sort:
+    type: array
+    items:
+      type: string
+  filter:
+    type: object
+  include:
+    type: array
+    items:
+      type: string
+  pagination:
+    oneOf:
+      - properties:
+          offset:
+            type: integer
+            example: 3
+          limit:
+            type: integer
+            example: 20
+          type:
+            type: string
+            enum:
+              - offset
+      - properties:
+          limit:
+            type: integer
+            example: 20
+          offset:
+            type: integer
+            example: 0
+          type:
+            type: string
+            enum:
+              - offset
+    type: object

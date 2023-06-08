@@ -1,0 +1,58 @@
+get:
+  tags:
+    - profiles
+  summary: Получение профиля
+  description: Получение профиля
+  operationId: getProfile
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+      required: true
+      description: Индетификатор профиля
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '/api-docs/account/schemas/profile.yaml'
+patch:
+  tags:
+    - profiles
+  summary: Частичное изменение авторизированного профиля
+  operationId: patchCurrentProfile
+  description: Частичное изменение авторизированного профиля
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+      required: true
+      description: Индетификатор профиля
+  security:
+    - API Key: []
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '/api-docs/account/schemas/profile.yaml'
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          description: ''
+          type: object
+          properties:
+            data:
+              $ref: '/api-docs/account/schemas/profile.yaml'

@@ -1,0 +1,18 @@
+get:
+  summary: Авторизированный пользователь
+  description: Авторизированный пользователь
+  operationId: getCurrentUser
+  security:
+      - API Key: []
+  tags:
+    - users
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '/api-docs/account/schemas/user.yaml'

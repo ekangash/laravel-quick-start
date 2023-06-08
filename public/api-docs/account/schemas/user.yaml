@@ -1,0 +1,23 @@
+title: User
+type: object
+description: Модель пользователя
+properties:
+  id:
+    type: integer
+    description: Идентификатор пользователя
+    example: 2
+  email:
+    type: string
+    example: sheeran@gmail.com
+    description: Почта
+  email_verified_at:
+    type: string
+    example: '2021-11-19T22:06:08.000000Z'
+    format: date-time
+    description: Дата создания пользователя
+    profile:
+      $ref: '/api-docs/account/schemas/profile.yaml'
+  profile:
+    type: object
+    properties:
+      $ref: './profile.yaml'

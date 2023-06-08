@@ -1,0 +1,78 @@
+get:
+  tags:
+    - topics
+  summary: Получение темы
+  description: Получение темы
+  operationId: get-topic
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+      required: true
+      description: Индетификатор темы
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: './../../schemas/topic.yaml#/Topic'
+patch:
+  tags:
+    - topics
+  summary: Частичное изменение темы
+  operationId: patch-topic
+  description: Частичное изменение темы
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+      required: true
+      description: Индетификатор темы
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: './../../schemas/topic.yaml#/TopicFillProperties'
+            - description: 'Тело запроса для редактирования темы'
+              required:
+                - title
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: './../../schemas/topic.yaml#/Topic'
+delete:
+  summary: Удаление темы
+  tags:
+    - topics
+  operationId: delete-topic
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+      required: true
+      description: Индетификатор темы
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                nullable: true

@@ -1,0 +1,27 @@
+post:
+  summary: 'Поиск темы, удовлетворяющего фильтру'
+  operationId: topic-search-one
+  description: 'Поиск темы, удовлетворяющего фильтру'
+  parameters: []
+  tags:
+    - topics
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: './../../schemas/topic.yaml#/Topic'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            filter:
+              type: object
+            include:
+              type: object

@@ -1,0 +1,36 @@
+post:
+  summary: Создание темы
+  description: Создание темы
+  operationId: createTopic
+  tags:
+    - topics
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: './../../schemas/topic.yaml#/'
+
+    '422':
+      description: Unprocessable Entity
+      content:
+        application/json:
+          type: object
+          properties:
+            errors:
+              type: string
+              example: 'Такой title уже занят!'
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: './../../schemas/topic.yaml#/TopicFillProperties'
+            - description: 'Тело запроса для создания темы'
+              required:
+                - title

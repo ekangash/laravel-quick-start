@@ -1,0 +1,48 @@
+post:
+  summary: Авторицация учетной записи (вход)
+  operationId: login
+  tags:
+    - users
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            properties:
+              data:
+                type: object
+                required:
+                  - token
+                properties:
+                  token:
+                    type: string
+                    minLength: 1
+            required:
+              - data
+  description: Авторицация учетной записи (вход)
+  requestBody:
+    content:
+      application/json:
+        schema:
+          description: ''
+          type: object
+          properties:
+            email:
+              type: string
+              description: Логин
+              example: arcane@gmail.com
+            password:
+              type: string
+              description: Пароль
+              example: secreting
+            token_name:
+              type: string
+              minLength: 1
+              description: Имя токена
+          required:
+            - login
+            - password
+            - token_name

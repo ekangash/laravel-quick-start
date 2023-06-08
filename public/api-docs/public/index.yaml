@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  title: Общие конечные точки
+  version: '1.0'
+  contact:
+    name: ekangash
+  description: 'API auth domain'
+servers:
+  - url: '/api'
+tags:
+  - name: topics
+    description: Темы
+paths:
+  '/topics':
+    $ref: './paths/topics/create.yaml'
+  '/topics/{id}':
+    $ref: './paths/topics/{id}.yaml'
+  /topics/search:
+    $ref: './paths/topics/search.yaml'
+  /topics/search-one:
+    $ref: './paths/topics/search-one.yaml'
+
+components:
+  schemas:
+    Topic:
+      $ref: './schemas/topic.yaml'
+    SearchRequest:
+      $ref: './schemas/search-request.yaml'
+  securitySchemes:
+    API Key:
+      type: http
+      scheme: bearer
+      description: Bearer token

@@ -1,0 +1,37 @@
+patch:
+  tags:
+    - users
+  summary: Частичное изменение авторизированного пользователя
+  operationId: patchCurrentUser
+  description: Частичное изменение авторизированного пользователя
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+      required: true
+      description: Индетификатор аккаунта
+  security:
+    - API Key: []
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          description: ''
+          type: object
+          properties:
+            email:
+              type: string
+              description: Почта
+              example: corleone@gmail.com
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '/api-docs/account/schemas/user.yaml'

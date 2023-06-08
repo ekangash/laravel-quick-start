@@ -1,0 +1,59 @@
+title: Profile
+type: object
+description: Модель профиля
+properties:
+  id:
+    type: integer
+    description: Идентификатор пользователя
+    example: 2
+  firstname:
+    type: string
+    description: Имя
+    example: Ed
+  lastname:
+    type: string
+    description: Фамилия
+    example: Sheeran
+  published_at:
+    type: boolean
+    description: Подтвержение пользователя
+    example: false
+  city:
+    type: string
+    description: Город
+    example:  New York
+  country:
+    type: string
+    description: Страна
+    example: USA
+  gender:
+    type: string
+    description: Пол
+    example: female
+  birthday:
+    type: string
+    description: Дата рождения
+    format: date-time
+    example: '2021-11-19T22:06:08.000000Z'
+  role:
+    type: string
+    description: Роль
+    example: guest
+  avatar:
+    type: string
+    description: Ссылка на фото аватарки
+    example: '/media/3/image_2022-01-14_13-26-57.png'
+  cover:
+    type: string
+    description: Ссылка на фоновое изображение
+    example: '/media/3/image_2022-01-14_13-26-57.png'
+  created_at:
+    type: string
+    example: '2021-11-19T22:06:08.000000Z'
+    format: date-time
+    description: Дата создания пользователя
+  updated_at:
+    type: string
+    example: '2021-11-19T22:06:08.000000Z'
+    format: date-time
+    description: Дата обновления пользователя

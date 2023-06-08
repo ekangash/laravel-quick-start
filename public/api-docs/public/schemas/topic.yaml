@@ -1,0 +1,50 @@
+Topic:
+  title: Topic
+  type: object
+  description: Публикация темы
+  allOf:
+    - $ref: '#/TopicFirstReadProperties'
+    - $ref: '#/TopicFillProperties'
+    - $ref: '#/TopicLastReadProperties'
+
+TopicFirstReadProperties:
+  properties:
+    id:
+      type: integer
+      description: Идентификатор категории
+      example: 1
+
+TopicLastReadProperties:
+  properties:
+    cover:
+      type: string
+      description: Фон
+      format: binary
+      example: '/media/3/image_2022-01-14_13-26-57.png'
+    created_at:
+      type: string
+      example: '2021-11-19T22:06:08.000000Z'
+      format: date-time
+    updated_at:
+      type: string
+      example: '2021-11-19T22:06:08.000000Z'
+      format: date-time
+
+TopicFillProperties:
+  properties:
+    title:
+      type: string
+      description: Заголовок
+      example: 'Путешествие'
+    description:
+      type: array
+      description: Описание
+      example: ['Путешествия автостопом: возникает вопрос, что брать с собой и как не пропасть в дороге.']
+    sign:
+      type: string
+      description: Уникальный признак
+      example: 'travel'
+    parent_id:
+      type: integer
+      description: Идентификатор родительской категории
+      example: 1

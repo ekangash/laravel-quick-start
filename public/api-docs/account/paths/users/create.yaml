@@ -1,0 +1,41 @@
+post:
+  summary: Создание учетной записи
+  description: Создание учетной записи
+  operationId: register
+  tags:
+    - users
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: array
+            example: []
+    '422':
+      description: Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            type: string
+            items:
+            example: 'Такой Email уже занят!'
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          description: ''
+          type: object
+          properties:
+            email:
+              type: string
+              description: Почта
+              example: arcane@gmail.com
+            password:
+              type: string
+              description: Пароль
+              example: secreting
+          required:
+            - password
+            - email

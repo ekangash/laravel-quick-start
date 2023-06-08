@@ -1,0 +1,18 @@
+post:
+  summary: Выход
+  operationId: logout
+  tags:
+    - users
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                nullable: true
+  security:
+    - API Key: []
+  description: Выход

@@ -1,0 +1,24 @@
+post:
+  summary: 'Поиск темы, удовлетворяющих фильтру'
+  operationId: topic-search
+  tags:
+    - topics
+  responses:
+    '200':
+      description: OK
+      content:
+        mult:
+          schema:
+            type: object
+            properties:
+              avatar:
+                type: string
+                description: Аватарка
+                format: binary
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '/api-docs/shared/schemas/search-request.yaml'
+  description: 'Поиск темы, удовлетворяющих фильтру'
+  parameters: []

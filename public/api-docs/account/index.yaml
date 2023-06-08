@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: Аккаунт
+  version: '1.0'
+  contact:
+    name: rusev
+  description: 'API account domain'
+servers:
+  - url: '/api/account'
+tags:
+  - name: profiles
+    description: Профиль пользователя
+  - name: users
+    description: Пользователь
+paths:
+  '/profiles/{id}':
+    $ref: './paths/profiles/{id}.yaml'
+  /profiles/search:
+    $ref: './paths/profiles/search.yaml'
+  /profiles/search-one:
+    $ref: './paths/profiles/search-one.yaml'
+
+  /users:
+    $ref: 'paths/users/create.yaml'
+  '/users/{id}':
+    $ref: 'paths/users/{id}.yaml'
+  /users/login:
+    $ref: 'paths/users/login.yaml'
+  /users/logout:
+    $ref: 'paths/users/logout.yaml'
+  /users/current:
+    $ref: 'paths/users/current.yaml'
+
+components:
+  schemas:
+    Profile:
+      $ref: './schemas/profile.yaml'
+    SearchRequest:
+      $ref: '/api-docs/shared/schemas/search-request.yaml'
+    User:
+      $ref: './schemas/user.yaml'
+  securitySchemes:
+    API Key:
+      type: http
+      scheme: bearer
+      description: Bearer token
